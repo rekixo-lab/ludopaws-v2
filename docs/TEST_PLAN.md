@@ -39,7 +39,7 @@ godot --path .
 godot --headless --path . --script res://tests/run_tests.gd
 ~~~
 
-Use godot4 if that is the executable name on the machine. These are commands to run, **not assertions that they have already passed**. The existing GitHub Action only performs static scaffold checks; Godot headless and Android checks must be added/performed by Codex.
+Use godot4 if that is the executable name on the machine. These are commands to run, **not assertions that they have already passed**. GitHub Actions currently runs **static scaffold validation** and **Godot 4.7.2 headless import / 10-frame preview smoke checks**; these verify loading/parsing, **NOT** complete gameplay, animation quality, physical device performance or Android export. Codex must add rules tests and perform actual playable/device checks.
 
 ## Decision: should Ludo Paws migrate?
 
