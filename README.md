@@ -12,11 +12,13 @@ Build a polished, playable **offline, same-device, two-player** Ludo board in Go
 
 ## Open in Godot (Linux Mint / desktop)
 
-1. Install a current **stable Godot 4.x standard edition** (not .NET/C# edition).
+1. Install **Godot 4.7.2 stable standard edition** (the version used by this repository's headless smoke workflow; no .NET/C# edition required).
 2. Clone this repository and open the folder containing project.godot from Godot Project Manager.
 3. Press **F6** for the current scene or **F5** to run the configured main scene.
 4. On systems with a Godot CLI: ~~~godot --path . --editor~~~ and ~~~godot --path .~~~ (the executable may be named godot4).
 5. The current "Roll preview" button **does not play Ludo** and its number is **not** a cryptographic dice result. Do not present this scaffold as complete.
+
+**Continuous integration:** [Static structure check](https://github.com/rekixo-lab/ludopaws-v2/actions/workflows/static-scaffold-check.yml) and [Godot 4.7.2 headless smoke](https://github.com/rekixo-lab/ludopaws-v2/actions/workflows/godot-smoke.yml) cover file integrity and early parser/startup problems. **Neither means the local Ludo game is playable yet.**
 
 ## Next job for Codex
 
