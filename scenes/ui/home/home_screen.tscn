@@ -364,6 +364,8 @@ offset_right = 262.0
 offset_bottom = 110.0
 title = "Team Up"
 glyph = ExtResource("team")
+glyph_size = 66
+glyph_height = 50
 metadata/route = &"team_up"
 
 [node name="Friends" instance=ExtResource("tile") parent="Canvas/ModeGrid" groups=["home_routes"]]
@@ -373,6 +375,8 @@ offset_right = 399.0
 offset_bottom = 110.0
 title = "Friends"
 glyph = ExtResource("friends")
+glyph_size = 74
+glyph_height = 51
 metadata/route = &"friends"
 
 [node name="Robot" instance=ExtResource("tile") parent="Canvas/ModeGrid" groups=["home_routes"]]
@@ -382,6 +386,8 @@ offset_right = 194.0
 offset_bottom = 228.0
 title = "Robot"
 glyph = ExtResource("robot")
+glyph_size = 70
+glyph_height = 55
 metadata/route = &"robot"
 
 [node name="PassAndPlay" instance=ExtResource("tile") parent="Canvas/ModeGrid" groups=["home_routes"]]
@@ -391,6 +397,8 @@ offset_right = 398.0
 offset_bottom = 228.0
 title = "Pass & Play"
 glyph = ExtResource("pass_play")
+glyph_size = 92
+glyph_height = 56
 metadata/route = &"pass_and_play"
 
 [node name="BottomNavigation" type="Control" parent="Canvas"]
