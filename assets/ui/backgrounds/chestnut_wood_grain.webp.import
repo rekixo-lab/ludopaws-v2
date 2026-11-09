@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bi4l5f1dx8q1p"
-path="res://.godot/imported/wood_panel.svg-2a1da211fbe73bd4353d82ad3d42102a.ctex"
+uid="uid://daqtdlcnmat66"
+path="res://.godot/imported/chestnut_wood_grain.webp-43da9c5957482b7d83bafb4addf6c2ff.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/backgrounds/wood_panel.svg"
-dest_files=["res://.godot/imported/wood_panel.svg-2a1da211fbe73bd4353d82ad3d42102a.ctex"]
+source_file="res://assets/ui/backgrounds/chestnut_wood_grain.webp"
+dest_files=["res://.godot/imported/chestnut_wood_grain.webp-43da9c5957482b7d83bafb4addf6c2ff.ctex"]
 
 [params]
 
@@ -38,6 +38,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false

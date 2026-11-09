@@ -5,11 +5,16 @@
 [ext_resource type="Texture2D" path="res://assets/ui/icons/gift.svg" id="gift"]
 [ext_resource type="Texture2D" path="res://assets/ui/icons/shop.svg" id="shop"]
 [ext_resource type="Texture2D" path="res://assets/ui/icons/profile.svg" id="profile"]
-[ext_resource type="Texture2D" path="res://assets/ui/backgrounds/wood_panel.svg" id="wood_panel"]
+[ext_resource type="Texture2D" path="res://assets/ui/backgrounds/chestnut_wood_grain.webp" id="wood_grain"]
 
 [ext_resource type="Texture2D" path="res://assets/ui/icons/notification_dot.svg" id="notification_dot"]
 
 [ext_resource type="Script" path="res://scripts/ui/components/bottom_navigation.gd" id="navigation"]
+
+[ext_resource type="Shader" path="res://assets/ui/backgrounds/wood_panel.gdshader" id="wood_shader"]
+
+[sub_resource type="ShaderMaterial" id="wood_material"]
+shader = ExtResource("wood_shader")
 
 [sub_resource type="ButtonGroup" id="tabs"]
 
@@ -22,7 +27,8 @@ script = ExtResource("navigation")
 offset_right = 430.0
 offset_bottom = 90.0
 mouse_filter = 2
-texture = ExtResource("wood_panel")
+material = SubResource("wood_material")
+texture = ExtResource("wood_grain")
 expand_mode = 1
 
 [node name="Play" instance=ExtResource("tile") parent="." groups=["home_routes"]]
