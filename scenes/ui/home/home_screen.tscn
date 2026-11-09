@@ -22,6 +22,8 @@
 [ext_resource type="Texture2D" path="res://assets/ui/backgrounds/chestnut_wood_grain.webp" id="wood_grain"]
 [ext_resource type="Shader" path="res://assets/ui/backgrounds/wooden_medallion.gdshader" id="medallion_shader"]
 
+[ext_resource type="PackedScene" path="res://scenes/ui/components/currency_add_button.tscn" id="currency_add"]
+
 [sub_resource type="ShaderMaterial" id="medallion_material"]
 shader = ExtResource("medallion_shader")
 
@@ -33,18 +35,6 @@ shader = ExtResource("hero_edge_blend")
 [sub_resource type="StyleBoxFlat" id="chip"]
 bg_color = Color(0.034,0.18,0.15,1)
 border_color = Color(0.65,0.53,0.32,1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-corner_radius_top_left = 12
-corner_radius_top_right = 12
-corner_radius_bottom_right = 12
-corner_radius_bottom_left = 12
-
-[sub_resource type="StyleBoxFlat" id="mint"]
-bg_color = Color(0.29,0.73,0.48,1)
-border_color = Color(0.58,0.91,0.67,1)
 border_width_left = 2
 border_width_top = 2
 border_width_right = 2
@@ -180,15 +170,11 @@ theme_override_colors/font_color = Color(1, 0.94, 0.81, 1)
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="OpenShop" type="Button" parent="Canvas/PlayContent/Coins" groups=["home_routes"]]
-offset_left = 103.0
+[node name="OpenShop" instance=ExtResource("currency_add") parent="Canvas/PlayContent/Coins" groups=["home_routes"]]
+offset_left = 104.0
 offset_top = 1.0
-offset_right = 132.0
-offset_bottom = 29.0
-text = "+"
-theme_override_font_sizes/font_size = 24
-theme_override_styles/normal = SubResource("mint")
-tooltip_text = "Shop"
+offset_right = 134.0
+offset_bottom = 31.0
 metadata/route = &"shop"
 
 [node name="Gems" type="Panel" parent="Canvas/PlayContent"]
@@ -220,15 +206,11 @@ theme_override_colors/font_color = Color(1, 0.94, 0.81, 1)
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="OpenShop" type="Button" parent="Canvas/PlayContent/Gems" groups=["home_routes"]]
-offset_left = 72.0
+[node name="OpenShop" instance=ExtResource("currency_add") parent="Canvas/PlayContent/Gems" groups=["home_routes"]]
+offset_left = 73.0
 offset_top = 1.0
-offset_right = 101.0
-offset_bottom = 29.0
-text = "+"
-theme_override_font_sizes/font_size = 24
-theme_override_styles/normal = SubResource("mint")
-tooltip_text = "Shop"
+offset_right = 103.0
+offset_bottom = 31.0
 metadata/route = &"shop"
 
 [node name="ContinueMatch" instance=ExtResource("continue_card") parent="Canvas/PlayContent" groups=["home_routes"]]
