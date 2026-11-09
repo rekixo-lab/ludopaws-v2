@@ -4,6 +4,7 @@ signal route_requested(route: StringName)
 
 const DESIGN_SIZE := Vector2(430, 826)
 const MIN_LAYOUT_HEIGHT := 760.0
+const HERO_DESIGN_HEIGHT := 454.0
 
 @onready var canvas: Control = $Canvas
 @onready var play_content: Control = $Canvas/PlayContent
@@ -32,6 +33,10 @@ func _fit_canvas() -> void:
 	canvas.position = area.position + Vector2((area.size.x - DESIGN_SIZE.x * factor) * 0.5, 0.0)
 	# Draw the artwork into the cutout inset while keeping controls inside it.
 	hero.offset_top = -area.position.y / factor
+	var hero_height := HERO_DESIGN_HEIGHT + canvas.size.y - DESIGN_SIZE.y - hero.offset_top
+	var extra_sky := clampf(1.0 - HERO_DESIGN_HEIGHT / hero_height, 0.0, 0.95)
+	var hero_material := hero.material as ShaderMaterial
+	hero_material.set_shader_parameter("extra_sky", extra_sky)
 
 func _safe_content_area() -> Rect2:
 	var area := Rect2(Vector2.ZERO, size)

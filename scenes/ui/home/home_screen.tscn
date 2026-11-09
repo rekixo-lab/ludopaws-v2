@@ -32,6 +32,7 @@ shader = ExtResource("medallion_shader")
 [sub_resource type="StyleBoxEmpty" id="badge_empty"]
 
 [sub_resource type="ShaderMaterial" id="hero_material"]
+resource_local_to_scene = true
 shader = ExtResource("hero_edge_blend")
 
 [sub_resource type="StyleBoxFlat" id="badge_focus"]
