@@ -20,6 +20,20 @@
 [ext_resource type="Texture2D" path="res://assets/ui/icons/ludo_board.svg" id="ludo_board"]
 [ext_resource type="Texture2D" path="res://assets/ui/backgrounds/wood_panel.svg" id="wood_panel"]
 
+[ext_resource type="Font" path="res://assets/ui/brand/ui_sans_bold.tres" id="sans"]
+
+[sub_resource type="StyleBoxFlat" id="reward_dot"]
+bg_color = Color(1, 0.22, 0.18, 1)
+border_color = Color(0.99, 0.52, 0.39, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_left = 6
+corner_radius_bottom_right = 6
+
 [sub_resource type="StyleBoxFlat" id="continue"]
 bg_color = Color(0.065,0.225,0.173,1)
 border_color = Color(0.88,0.70,0.43,1)
@@ -98,46 +112,69 @@ texture = ExtResource("backdrop")
 expand_mode = 1
 stretch_mode = 6
 
-[node name="WoodlandHero" type="TextureRect" parent="Canvas"]
-offset_left = 0.0
-offset_top = 0.0
+[node name="HeroFrame" type="Control" parent="Canvas"]
 offset_right = 430.0
 offset_bottom = 378.0
 mouse_filter = 2
+clip_contents = true
+
+[node name="WoodlandHero" type="TextureRect" parent="Canvas/HeroFrame"]
+offset_right = 430.0
+offset_bottom = 412.0
+mouse_filter = 2
 texture = ExtResource("hero")
 expand_mode = 1
-stretch_mode = 6
+stretch_mode = 0
 
 [node name="TitlePlaque" type="TextureRect" parent="Canvas"]
-offset_left = 106.0
-offset_top = 63.0
-offset_right = 324.0
-offset_bottom = 192.0
+offset_left = 96.0
+offset_top = 65.0
+offset_right = 340.0
+offset_bottom = 195.0
 mouse_filter = 2
 texture = ExtResource("sign")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="BrandTitle" type="Label" parent="Canvas"]
-offset_left = 106.0
-offset_top = 67.0
-offset_right = 324.0
-offset_bottom = 170.0
+[node name="BrandTop" type="Label" parent="Canvas"]
+offset_left = 100.0
+offset_top = 76.0
+offset_right = 330.0
+offset_bottom = 124.0
 mouse_filter = 2
-text = "LUDO\nPAWS"
-theme_override_font_sizes/font_size = 48
-theme_override_colors/font_color = Color(1, 0.94, 0.81, 1)
+text = "LUDO"
+theme_override_font_sizes/font_size = 50
+theme_override_colors/font_color = Color(1, 0.95, 0.85, 1)
+theme_override_colors/font_outline_color = Color(0.26, 0.13, 0.06, 1)
+theme_override_constants/outline_size = 6
+theme_override_colors/font_shadow_color = Color(0.13, 0.06, 0.025, 0.88)
+theme_override_constants/shadow_offset_y = 3
+theme_override_fonts/font = ExtResource("serif")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="BrandBottom" type="Label" parent="Canvas"]
+offset_left = 100.0
+offset_top = 115.0
+offset_right = 330.0
+offset_bottom = 165.0
+mouse_filter = 2
+text = "PAWS"
+theme_override_font_sizes/font_size = 49
+theme_override_colors/font_color = Color(1, 0.77, 0.38, 1)
+theme_override_colors/font_outline_color = Color(0.26, 0.13, 0.06, 1)
+theme_override_constants/outline_size = 6
+theme_override_colors/font_shadow_color = Color(0.13, 0.06, 0.025, 0.88)
+theme_override_constants/shadow_offset_y = 3
 theme_override_fonts/font = ExtResource("serif")
-theme_override_colors/font_shadow_color = Color(0.16, 0.075, 0.035, 1)
-theme_override_constants/shadow_offset_y = 2
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="BrandPaw" type="TextureRect" parent="Canvas"]
-offset_left = 204.0
-offset_top = 158.0
-offset_right = 227.0
-offset_bottom = 181.0
+offset_left = 200.0
+offset_top = 165.0
+offset_right = 230.0
+offset_bottom = 188.0
 mouse_filter = 2
 texture = ExtResource("paw")
 expand_mode = 1
@@ -252,29 +289,30 @@ metadata/route = &"continue_match"
 tooltip_text = "Continue Match"
 
 [node name="ModeIcon" type="TextureRect" parent="Canvas/ContinueMatch"]
-offset_left = 13.0
-offset_top = 13.0
-offset_right = 58.0
-offset_bottom = 58.0
+offset_left = 4.0
+offset_top = 1.0
+offset_right = 94.0
+offset_bottom = 72.0
 mouse_filter = 2
 texture = ExtResource("ludo_board")
 expand_mode = 1
 stretch_mode = 5
 
 [node name="Title" type="Label" parent="Canvas/ContinueMatch"]
-offset_left = 68.0
+offset_left = 98.0
 offset_top = 8.0
 offset_right = 322.0
 offset_bottom = 38.0
 mouse_filter = 2
 text = "Continue Match"
+theme_override_fonts/font = ExtResource("sans")
 theme_override_font_sizes/font_size = 22
 theme_override_colors/font_color = Color(1, 0.94, 0.81, 1)
 horizontal_alignment = 0
 vertical_alignment = 1
 
 [node name="Summary" type="Label" parent="Canvas/ContinueMatch"]
-offset_left = 68.0
+offset_left = 98.0
 offset_top = 35.0
 offset_right = 313.0
 offset_bottom = 63.0
@@ -408,10 +446,10 @@ glyph = ExtResource("profile")
 metadata/route = &"profile"
 navigation_item = true
 
-[node name="RewardDot" type="ColorRect" parent="Canvas/BottomNavigation"]
-offset_left = 188.0
-offset_top = 12.0
-offset_right = 196.0
-offset_bottom = 20.0
+[node name="RewardDot" type="Panel" parent="Canvas/BottomNavigation"]
+offset_left = 185.0
+offset_top = 7.0
+offset_right = 197.0
+offset_bottom = 19.0
 mouse_filter = 2
-color = Color(1, 0.22, 0.18, 1)
+theme_override_styles/panel = SubResource("reward_dot")
