@@ -14,13 +14,11 @@
 [ext_resource type="Texture2D" path="res://assets/ui/icons/gift.svg" id="gift"]
 [ext_resource type="Texture2D" path="res://assets/ui/icons/shop.svg" id="shop"]
 [ext_resource type="Texture2D" path="res://assets/ui/icons/profile.svg" id="profile"]
-[ext_resource type="Texture2D" path="res://assets/ui/icons/play.svg" id="play"]
 [ext_resource type="Texture2D" path="res://assets/ui/icons/coin.svg" id="coin"]
 [ext_resource type="Texture2D" path="res://assets/ui/icons/gem.svg" id="gem"]
-[ext_resource type="Texture2D" path="res://assets/ui/icons/ludo_board.svg" id="ludo_board"]
+[ext_resource type="PackedScene" path="res://scenes/ui/components/continue_match_card.tscn" id="continue_card"]
 [ext_resource type="Texture2D" path="res://assets/ui/backgrounds/wood_panel.svg" id="wood_panel"]
 
-[ext_resource type="Font" path="res://assets/ui/brand/ui_sans_bold.tres" id="sans"]
 
 [sub_resource type="StyleBoxFlat" id="reward_dot"]
 bg_color = Color(1, 0.22, 0.18, 1)
@@ -33,18 +31,6 @@ corner_radius_top_left = 6
 corner_radius_top_right = 6
 corner_radius_bottom_left = 6
 corner_radius_bottom_right = 6
-
-[sub_resource type="StyleBoxFlat" id="continue"]
-bg_color = Color(0.065,0.225,0.173,1)
-border_color = Color(0.88,0.70,0.43,1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-corner_radius_top_left = 19
-corner_radius_top_right = 19
-corner_radius_bottom_right = 19
-corner_radius_bottom_left = 19
 
 [sub_resource type="StyleBoxFlat" id="chip"]
 bg_color = Color(0.034,0.18,0.15,1)
@@ -279,67 +265,12 @@ theme_override_styles/normal = SubResource("mint")
 tooltip_text = "Shop"
 metadata/route = &"shop"
 
-[node name="ContinueMatch" type="Button" parent="Canvas" groups=["home_routes"]]
+[node name="ContinueMatch" instance=ExtResource("continue_card") parent="Canvas" groups=["home_routes"]]
 offset_left = 13.0
 offset_top = 379.0
 offset_right = 417.0
 offset_bottom = 453.0
-theme_override_styles/normal = SubResource("continue")
 metadata/route = &"continue_match"
-tooltip_text = "Continue Match"
-
-[node name="ModeIcon" type="TextureRect" parent="Canvas/ContinueMatch"]
-offset_left = 4.0
-offset_top = 1.0
-offset_right = 94.0
-offset_bottom = 72.0
-mouse_filter = 2
-texture = ExtResource("ludo_board")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="Title" type="Label" parent="Canvas/ContinueMatch"]
-offset_left = 98.0
-offset_top = 8.0
-offset_right = 322.0
-offset_bottom = 38.0
-mouse_filter = 2
-text = "Continue Match"
-theme_override_fonts/font = ExtResource("sans")
-theme_override_font_sizes/font_size = 22
-theme_override_colors/font_color = Color(1, 0.94, 0.81, 1)
-horizontal_alignment = 0
-vertical_alignment = 1
-
-[node name="Summary" type="Label" parent="Canvas/ContinueMatch"]
-offset_left = 98.0
-offset_top = 35.0
-offset_right = 313.0
-offset_bottom = 63.0
-mouse_filter = 2
-text = "Online  •  4 Players"
-theme_override_font_sizes/font_size = 17
-theme_override_colors/font_color = Color(1, 0.94, 0.81, 1)
-horizontal_alignment = 0
-vertical_alignment = 1
-
-[node name="PlayChip" type="Panel" parent="Canvas/ContinueMatch"]
-offset_left = 342.0
-offset_top = 16.0
-offset_right = 389.0
-offset_bottom = 56.0
-mouse_filter = 2
-theme_override_styles/panel = SubResource("mint")
-
-[node name="PlayIcon" type="TextureRect" parent="Canvas/ContinueMatch"]
-offset_left = 353.0
-offset_top = 24.0
-offset_right = 378.0
-offset_bottom = 48.0
-mouse_filter = 2
-texture = ExtResource("play")
-expand_mode = 1
-stretch_mode = 5
 
 [node name="ModeGrid" type="Control" parent="Canvas"]
 offset_left = 16.0
