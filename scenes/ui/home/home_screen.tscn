@@ -18,6 +18,11 @@
 
 [ext_resource type="PackedScene" path="res://scenes/ui/components/bottom_navigation.tscn" id="bottom_navigation"]
 
+[ext_resource type="Shader" path="res://assets/ui/backgrounds/illustration_edge_blend.gdshader" id="hero_edge_blend"]
+
+[sub_resource type="ShaderMaterial" id="hero_material"]
+shader = ExtResource("hero_edge_blend")
+
 [sub_resource type="StyleBoxFlat" id="chip"]
 bg_color = Color(0.034,0.18,0.15,1)
 border_color = Color(0.65,0.53,0.32,1)
@@ -89,16 +94,11 @@ offset_right = 430.0
 offset_bottom = 730.0
 mouse_filter = 2
 
-[node name="HeroFrame" type="Control" parent="Canvas/PlayContent"]
+[node name="WoodlandHero" type="TextureRect" parent="Canvas/PlayContent"]
 offset_right = 430.0
-offset_bottom = 378.0
+offset_bottom = 454.0
 mouse_filter = 2
-clip_contents = true
-
-[node name="WoodlandHero" type="TextureRect" parent="Canvas/PlayContent/HeroFrame"]
-offset_right = 430.0
-offset_bottom = 412.0
-mouse_filter = 2
+material = SubResource("hero_material")
 texture = ExtResource("hero")
 expand_mode = 1
 stretch_mode = 0
