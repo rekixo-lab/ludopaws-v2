@@ -20,6 +20,18 @@ Build a polished, playable **offline, same-device, two-player** Ludo board in Go
 
 **Continuous integration:** [Static structure check](https://github.com/rekixo-lab/ludopaws-v2/actions/workflows/static-scaffold-check.yml) and [Godot 4.7.2 headless smoke](https://github.com/rekixo-lab/ludopaws-v2/actions/workflows/godot-smoke.yml) cover file integrity and early parser/startup problems. **Neither means the local Ludo game is playable yet.**
 
+## Home UI preview
+
+Open `scenes/ui/home/home_screen.tscn` in Godot and press **F6** to preview it.
+The Home scene uses sample balances and match text, and emits `route_requested` for
+future navigation. **F5** still opens the separate board scaffold.
+
+- `assets/ui/backgrounds` holds reusable scenery and panel art.
+- `assets/ui/brand` holds the title plaque, display font resource and Home illustration.
+- `assets/ui/icons` holds single-purpose SVG glyphs.
+- `scenes/ui/components` and `scripts/ui/components` hold shared Godot controls.
+- `scenes/ui/home` and `scripts/ui/home` hold Home composition and behavior.
+
 ## Next job for Codex
 
 Read **AGENTS.md**, **docs/PROTOTYPE_SPEC.md**, **docs/CODEX_TASK.md**, **docs/TEST_PLAN.md** and **docs/TECHNICAL_BOUNDARIES.md** before editing. Complete all acceptance criteria and test in a Godot 4 editor/device. The source-of-truth implementation can be inspected in the original repository if authorized, but do not copy credentials, binary assets or private source into this public repository without permission.
