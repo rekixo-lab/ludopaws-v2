@@ -3,8 +3,7 @@
 [ext_resource type="PackedScene" path="res://scenes/ui/components/menu_tile.tscn" id="tile"]
 [ext_resource type="Texture2D" path="res://assets/ui/backgrounds/moonlit_meadow.webp" id="backdrop"]
 [ext_resource type="Texture2D" path="res://assets/ui/brand/home_woodland_hero.webp" id="hero"]
-[ext_resource type="Texture2D" path="res://assets/ui/brand/wooden_sign.svg" id="sign"]
-[ext_resource type="Font" path="res://assets/ui/brand/display_serif.tres" id="serif"]
+[ext_resource type="PackedScene" path="res://scenes/ui/components/brand_title.tscn" id="brand_title"]
 [ext_resource type="Texture2D" path="res://assets/ui/icons/paw.svg" id="paw"]
 [ext_resource type="Texture2D" path="res://assets/ui/icons/globe.svg" id="globe"]
 [ext_resource type="Texture2D" path="res://assets/ui/icons/team.svg" id="team"]
@@ -103,59 +102,11 @@ texture = ExtResource("hero")
 expand_mode = 1
 stretch_mode = 0
 
-[node name="TitlePlaque" type="TextureRect" parent="Canvas/PlayContent"]
-offset_left = 96.0
+[node name="BrandTitle" instance=ExtResource("brand_title") parent="Canvas/PlayContent"]
+offset_left = 94.0
 offset_top = 65.0
 offset_right = 340.0
-offset_bottom = 195.0
-mouse_filter = 2
-texture = ExtResource("sign")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="BrandTop" type="Label" parent="Canvas/PlayContent"]
-offset_left = 100.0
-offset_top = 76.0
-offset_right = 330.0
-offset_bottom = 124.0
-mouse_filter = 2
-text = "LUDO"
-theme_override_font_sizes/font_size = 50
-theme_override_colors/font_color = Color(1, 0.95, 0.85, 1)
-theme_override_colors/font_outline_color = Color(0.26, 0.13, 0.06, 1)
-theme_override_constants/outline_size = 6
-theme_override_colors/font_shadow_color = Color(0.13, 0.06, 0.025, 0.88)
-theme_override_constants/shadow_offset_y = 3
-theme_override_fonts/font = ExtResource("serif")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="BrandBottom" type="Label" parent="Canvas/PlayContent"]
-offset_left = 100.0
-offset_top = 115.0
-offset_right = 330.0
-offset_bottom = 165.0
-mouse_filter = 2
-text = "PAWS"
-theme_override_font_sizes/font_size = 49
-theme_override_colors/font_color = Color(1, 0.77, 0.38, 1)
-theme_override_colors/font_outline_color = Color(0.26, 0.13, 0.06, 1)
-theme_override_constants/outline_size = 6
-theme_override_colors/font_shadow_color = Color(0.13, 0.06, 0.025, 0.88)
-theme_override_constants/shadow_offset_y = 3
-theme_override_fonts/font = ExtResource("serif")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="BrandPaw" type="TextureRect" parent="Canvas/PlayContent"]
-offset_left = 200.0
-offset_top = 165.0
-offset_right = 230.0
-offset_bottom = 188.0
-mouse_filter = 2
-texture = ExtResource("paw")
-expand_mode = 1
-stretch_mode = 5
+offset_bottom = 204.0
 
 [node name="ProfileShortcut" type="Button" parent="Canvas/PlayContent" groups=["home_routes"]]
 offset_left = 17.0

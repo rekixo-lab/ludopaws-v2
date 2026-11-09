@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bsaqs8or4d37w"
-path="res://.godot/imported/wooden_sign.svg-db5791d162cc23f6e3cce2a6f00a8977.ctex"
+uid="uid://mqw04nerrasf"
+path="res://.godot/imported/woodland_title_plaque.webp-cb1dfef3b357bbe2486d8bf8e542b473.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/brand/wooden_sign.svg"
-dest_files=["res://.godot/imported/wooden_sign.svg-db5791d162cc23f6e3cce2a6f00a8977.ctex"]
+source_file="res://assets/ui/brand/woodland_title_plaque.webp"
+dest_files=["res://.godot/imported/woodland_title_plaque.webp-cb1dfef3b357bbe2486d8bf8e542b473.ctex"]
 
 [params]
 
@@ -38,6 +38,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false
