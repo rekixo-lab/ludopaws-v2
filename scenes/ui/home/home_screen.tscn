@@ -185,10 +185,10 @@ offset_bottom = 49.0
 theme_override_styles/panel = SubResource("chip")
 
 [node name="Icon" type="TextureRect" parent="Canvas/PlayContent/Gems"]
-offset_left = 0.0
-offset_top = -4.0
-offset_right = 35.0
-offset_bottom = 32.0
+offset_left = -5.0
+offset_top = -4.5
+offset_right = 36.0
+offset_bottom = 34.0
 mouse_filter = 2
 texture = ExtResource("gem")
 expand_mode = 1
