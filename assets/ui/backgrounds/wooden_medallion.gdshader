@@ -23,10 +23,10 @@ void fragment() {
 
 	vec3 grain = texture(TEXTURE, vec2(UV.x * 0.73 + 0.13, UV.y * 0.77 + 0.1)).rgb;
 	float grain_light = dot(grain, vec3(0.31, 0.52, 0.17));
-	vec3 wood = vec3(0.205, 0.128, 0.087) + grain_light * vec3(0.35, 0.27, 0.22);
+	vec3 wood = vec3(0.267, 0.162, 0.101) + grain_light * vec3(0.39, 0.235, 0.15);
 	wood *= mix(0.79, 1.24, light);
 	float inset_shadow = smoothstep(0.345, 0.402, radius);
-	wood *= 1.0 - inset_shadow * 0.29;
+	wood *= 1.0 - inset_shadow * 0.22;
 	finish = mix(finish, wood, disc(radius, 0.4));
 	float upper_ridge = (1.0 - smoothstep(0.0, 0.013, abs(radius - 0.458))) * smoothstep(0.49, 0.87, light);
 	finish += vec3(0.16, 0.122, 0.076) * upper_ridge;

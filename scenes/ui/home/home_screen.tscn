@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" path="res://assets/ui/backgrounds/moonlit_meadow.webp" id="backdrop"]
 [ext_resource type="Texture2D" path="res://assets/ui/brand/home_woodland_hero.webp" id="hero"]
 [ext_resource type="PackedScene" path="res://scenes/ui/components/brand_title.tscn" id="brand_title"]
-[ext_resource type="Texture2D" path="res://assets/ui/icons/paw.svg" id="paw"]
+[ext_resource type="Texture2D" path="res://assets/ui/icons/profile_paw_crest.svg" id="profile_paw"]
 [ext_resource type="Texture2D" path="res://assets/ui/icons/globe.svg" id="globe"]
 [ext_resource type="Texture2D" path="res://assets/ui/icons/team.svg" id="team"]
 [ext_resource type="Texture2D" path="res://assets/ui/icons/friends.svg" id="friends"]
@@ -143,12 +143,11 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -24.5
-offset_top = -25.5
+offset_top = -27.0
 offset_right = 24.5
-offset_bottom = 23.5
+offset_bottom = 22.0
 mouse_filter = 2
-self_modulate = Color(1.06, 0.88, 0.58, 1)
-texture = ExtResource("paw")
+texture = ExtResource("profile_paw")
 expand_mode = 1
 stretch_mode = 5
 
