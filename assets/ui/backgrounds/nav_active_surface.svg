@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="96" height="72" viewBox="0 0 96 72">
+ <defs>
+  <linearGradient id="body" x2="0" y2="1"><stop stop-color="#337b50"/><stop offset=".46" stop-color="#17563b"/><stop offset=".82" stop-color="#185f42"/><stop offset="1" stop-color="#39a875"/></linearGradient>
+  <linearGradient id="edge" x2="0" y2="1"><stop stop-color="#d7efac"/><stop offset=".32" stop-color="#5aaf83"/><stop offset=".74" stop-color="#45a883"/><stop offset="1" stop-color="#8af6bb"/></linearGradient>
+  <radialGradient id="sheen" cx=".2" cy=".04" r=".9"><stop stop-color="#c4f39c" stop-opacity=".39"/><stop offset="1" stop-color="#c4f39c" stop-opacity="0"/></radialGradient>
+ </defs>
+ <rect x="1.4" y="2.5" width="93.2" height="68" rx="14" fill="#183a2a" opacity=".68"/>
+ <rect x="2.8" y="1.7" width="90.4" height="66.5" rx="13" fill="url(#body)" stroke="url(#edge)" stroke-width="2.3"/>
+ <rect x="4.4" y="3.3" width="87.2" height="63.3" rx="11.5" fill="url(#sheen)"/>
+ <path d="M10 11Q14 4.5 23 4.5H76Q84 4.5 88 10" fill="none" stroke="#f1f7c5" stroke-opacity=".55"/>
+ <path d="M9 59Q14 64 22 64H74Q85 64 88 59" fill="none" stroke="#9bfbc1" stroke-opacity=".45"/>
+</svg>

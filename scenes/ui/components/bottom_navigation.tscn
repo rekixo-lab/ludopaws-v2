@@ -1,0 +1,84 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/ui/components/menu_tile.tscn" id="tile"]
+[ext_resource type="Texture2D" path="res://assets/ui/icons/paw.svg" id="paw"]
+[ext_resource type="Texture2D" path="res://assets/ui/icons/gift.svg" id="gift"]
+[ext_resource type="Texture2D" path="res://assets/ui/icons/shop.svg" id="shop"]
+[ext_resource type="Texture2D" path="res://assets/ui/icons/profile.svg" id="profile"]
+[ext_resource type="Texture2D" path="res://assets/ui/backgrounds/wood_panel.svg" id="wood_panel"]
+
+[sub_resource type="StyleBoxFlat" id="reward_dot"]
+bg_color = Color(1, 0.22, 0.18, 1)
+border_color = Color(0.99, 0.52, 0.39, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_left = 6
+corner_radius_bottom_right = 6
+
+[node name="BottomNavigation" type="Control"]
+offset_right = 430.0
+offset_bottom = 90.0
+
+[node name="Wood" type="TextureRect" parent="."]
+offset_right = 430.0
+offset_bottom = 90.0
+mouse_filter = 2
+texture = ExtResource("wood_panel")
+expand_mode = 1
+
+[node name="Play" instance=ExtResource("tile") parent="." groups=["home_routes"]]
+offset_left = 16.0
+offset_top = 0.0
+offset_right = 110.0
+offset_bottom = 69.0
+title = "Play"
+glyph = ExtResource("paw")
+glyph_size = 35
+metadata/route = &"play"
+navigation_item = true
+current = true
+
+[node name="Rewards" instance=ExtResource("tile") parent="." groups=["home_routes"]]
+offset_left = 117.0
+offset_top = 0.0
+offset_right = 211.0
+offset_bottom = 69.0
+title = "Rewards"
+glyph = ExtResource("gift")
+glyph_size = 32
+metadata/route = &"rewards"
+navigation_item = true
+
+[node name="Shop" instance=ExtResource("tile") parent="." groups=["home_routes"]]
+offset_left = 218.0
+offset_top = 0.0
+offset_right = 312.0
+offset_bottom = 69.0
+title = "Shop"
+glyph = ExtResource("shop")
+glyph_size = 36
+metadata/route = &"shop"
+navigation_item = true
+
+[node name="Profile" instance=ExtResource("tile") parent="." groups=["home_routes"]]
+offset_left = 319.0
+offset_top = 0.0
+offset_right = 413.0
+offset_bottom = 69.0
+title = "Profile"
+glyph = ExtResource("profile")
+glyph_size = 32
+metadata/route = &"profile"
+navigation_item = true
+
+[node name="RewardDot" type="Panel" parent="."]
+offset_left = 184.0
+offset_top = 6.0
+offset_right = 196.0
+offset_bottom = 18.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("reward_dot")

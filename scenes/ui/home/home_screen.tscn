@@ -11,26 +11,12 @@
 [ext_resource type="Texture2D" path="res://assets/ui/icons/friends.svg" id="friends"]
 [ext_resource type="Texture2D" path="res://assets/ui/icons/robot.svg" id="robot"]
 [ext_resource type="Texture2D" path="res://assets/ui/icons/pass_play.svg" id="pass_play"]
-[ext_resource type="Texture2D" path="res://assets/ui/icons/gift.svg" id="gift"]
-[ext_resource type="Texture2D" path="res://assets/ui/icons/shop.svg" id="shop"]
-[ext_resource type="Texture2D" path="res://assets/ui/icons/profile.svg" id="profile"]
 [ext_resource type="Texture2D" path="res://assets/ui/icons/coin.svg" id="coin"]
 [ext_resource type="Texture2D" path="res://assets/ui/icons/gem.svg" id="gem"]
 [ext_resource type="PackedScene" path="res://scenes/ui/components/continue_match_card.tscn" id="continue_card"]
-[ext_resource type="Texture2D" path="res://assets/ui/backgrounds/wood_panel.svg" id="wood_panel"]
 
 
-[sub_resource type="StyleBoxFlat" id="reward_dot"]
-bg_color = Color(1, 0.22, 0.18, 1)
-border_color = Color(0.99, 0.52, 0.39, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-corner_radius_top_left = 6
-corner_radius_top_right = 6
-corner_radius_bottom_left = 6
-corner_radius_bottom_right = 6
+[ext_resource type="PackedScene" path="res://scenes/ui/components/bottom_navigation.tscn" id="bottom_navigation"]
 
 [sub_resource type="StyleBoxFlat" id="chip"]
 bg_color = Color(0.034,0.18,0.15,1)
@@ -332,64 +318,7 @@ glyph_size = 92
 glyph_height = 56
 metadata/route = &"pass_and_play"
 
-[node name="BottomNavigation" type="Control" parent="Canvas"]
-offset_left = 0.0
+[node name="BottomNavigation" instance=ExtResource("bottom_navigation") parent="Canvas"]
 offset_top = 730.0
 offset_right = 430.0
-offset_bottom = 826.0
-
-[node name="Wood" type="TextureRect" parent="Canvas/BottomNavigation"]
-offset_right = 430.0
-offset_bottom = 96.0
-mouse_filter = 2
-texture = ExtResource("wood_panel")
-expand_mode = 1
-
-[node name="Play" instance=ExtResource("tile") parent="Canvas/BottomNavigation" groups=["home_routes"]]
-offset_left = 16.0
-offset_top = 5.0
-offset_right = 110.0
-offset_bottom = 74.0
-title = "Play"
-glyph = ExtResource("paw")
-metadata/route = &"play"
-navigation_item = true
-current = true
-
-[node name="Rewards" instance=ExtResource("tile") parent="Canvas/BottomNavigation" groups=["home_routes"]]
-offset_left = 117.0
-offset_top = 5.0
-offset_right = 211.0
-offset_bottom = 74.0
-title = "Rewards"
-glyph = ExtResource("gift")
-metadata/route = &"rewards"
-navigation_item = true
-
-[node name="Shop" instance=ExtResource("tile") parent="Canvas/BottomNavigation" groups=["home_routes"]]
-offset_left = 218.0
-offset_top = 5.0
-offset_right = 312.0
-offset_bottom = 74.0
-title = "Shop"
-glyph = ExtResource("shop")
-metadata/route = &"shop"
-navigation_item = true
-
-[node name="Profile" instance=ExtResource("tile") parent="Canvas/BottomNavigation" groups=["home_routes"]]
-offset_left = 319.0
-offset_top = 5.0
-offset_right = 413.0
-offset_bottom = 74.0
-title = "Profile"
-glyph = ExtResource("profile")
-metadata/route = &"profile"
-navigation_item = true
-
-[node name="RewardDot" type="Panel" parent="Canvas/BottomNavigation"]
-offset_left = 185.0
-offset_top = 7.0
-offset_right = 197.0
-offset_bottom = 19.0
-mouse_filter = 2
-theme_override_styles/panel = SubResource("reward_dot")
+offset_bottom = 820.0

@@ -2,6 +2,7 @@
 extends Button
 
 const CARD_SURFACE := preload("res://assets/ui/backgrounds/mode_card_surface.svg")
+const NAV_ACTIVE_SURFACE := preload("res://assets/ui/backgrounds/nav_active_surface.svg")
 const LABEL_FONT := preload("res://assets/ui/brand/ui_sans_bold.tres")
 
 @export var title: String = "":
@@ -34,23 +35,27 @@ func _ready() -> void:
 	$Contents/Title.add_theme_font_override("font", LABEL_FONT)
 	$Contents/Title.add_theme_font_size_override("font_size", 16 if navigation_item else 22)
 	if navigation_item:
-		var base := Color("#205b43") if current else Color.TRANSPARENT
-		var border := Color("#81e9b0") if current else Color.TRANSPARENT
-		add_theme_stylebox_override("normal", _style(base, border))
-		add_theme_stylebox_override("hover", _style(Color("#64432c") if not current else base.lightened(0.13), border))
-		add_theme_stylebox_override("pressed", _style(Color("#4b301f") if not current else base.darkened(0.2), border))
+		if current:
+			$Contents/Glyph.self_modulate = Color(1.17, 1.29, 1.52)
+			add_theme_stylebox_override("normal", _textured_style(NAV_ACTIVE_SURFACE, Color.WHITE, 15))
+			add_theme_stylebox_override("hover", _textured_style(NAV_ACTIVE_SURFACE, Color(1.1, 1.1, 1.1), 15))
+			add_theme_stylebox_override("pressed", _textured_style(NAV_ACTIVE_SURFACE, Color(0.86, 0.86, 0.86), 15))
+		else:
+			add_theme_stylebox_override("normal", StyleBoxEmpty.new())
+			add_theme_stylebox_override("hover", _style(Color(0.69, 0.42, 0.22, 0.16), Color.TRANSPARENT))
+			add_theme_stylebox_override("pressed", _style(Color(0.12, 0.07, 0.04, 0.22), Color.TRANSPARENT))
 	else:
-		add_theme_stylebox_override("normal", _card_style(Color.WHITE))
-		add_theme_stylebox_override("hover", _card_style(Color(1.13, 1.13, 1.13)))
-		add_theme_stylebox_override("pressed", _card_style(Color(0.82, 0.82, 0.82)))
+		add_theme_stylebox_override("normal", _textured_style(CARD_SURFACE, Color.WHITE, 22))
+		add_theme_stylebox_override("hover", _textured_style(CARD_SURFACE, Color(1.13, 1.13, 1.13), 22))
+		add_theme_stylebox_override("pressed", _textured_style(CARD_SURFACE, Color(0.82, 0.82, 0.82), 22))
 	add_theme_stylebox_override("focus", _style(Color.TRANSPARENT, Color("#fff0c5")))
 
-func _card_style(tint: Color) -> StyleBoxTexture:
+func _textured_style(texture: Texture2D, tint: Color, margin: int) -> StyleBoxTexture:
 	var style := StyleBoxTexture.new()
-	style.texture = CARD_SURFACE
+	style.texture = texture
 	style.modulate_color = tint
 	for side in [SIDE_LEFT, SIDE_TOP, SIDE_RIGHT, SIDE_BOTTOM]:
-		style.set_texture_margin(side, 22)
+		style.set_texture_margin(side, margin)
 	return style
 
 func _style(fill: Color, border: Color) -> StyleBoxFlat:
