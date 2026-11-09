@@ -22,10 +22,9 @@
 [ext_resource type="Texture2D" path="res://assets/ui/backgrounds/chestnut_wood_grain.webp" id="wood_grain"]
 [ext_resource type="Shader" path="res://assets/ui/backgrounds/wooden_medallion.gdshader" id="medallion_shader"]
 
-[ext_resource type="PackedScene" path="res://scenes/ui/components/currency_add_button.tscn" id="currency_add"]
 
-[ext_resource type="Texture2D" path="res://assets/ui/backgrounds/currency_rail.svg" id="currency_rail"]
-[ext_resource type="Font" path="res://assets/ui/brand/ui_sans_bold.tres" id="currency_bold"]
+
+[ext_resource type="PackedScene" path="res://scenes/ui/components/currency_bar.tscn" id="currency_bar"]
 
 [sub_resource type="ShaderMaterial" id="medallion_material"]
 shader = ExtResource("medallion_shader")
@@ -132,94 +131,26 @@ texture = ExtResource("profile_paw")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Coins" type="Control" parent="Canvas/PlayContent"]
-offset_left = 160.0
+[node name="Currencies" type="HBoxContainer" parent="Canvas/PlayContent"]
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -270.0
 offset_top = 18.0
-offset_right = 294.0
+offset_right = -17.0
 offset_bottom = 49.0
+grow_horizontal = 0
 mouse_filter = 2
+theme_override_constants/separation = 16
+alignment = 2
 
-[node name="Rail" type="TextureRect" parent="Canvas/PlayContent/Coins"]
-offset_left = 24.0
-offset_right = 134.0
-offset_bottom = 31.0
-mouse_filter = 2
-texture = ExtResource("currency_rail")
-expand_mode = 1
+[node name="Coins" instance=ExtResource("currency_bar") parent="Canvas/PlayContent/Currencies"]
+layout_mode = 2
+icon = ExtResource("coin")
+base_width = 134
 
-[node name="Icon" type="TextureRect" parent="Canvas/PlayContent/Coins"]
-offset_left = -3.0
-offset_top = -3.5
-offset_right = 37.0
-offset_bottom = 36.5
-mouse_filter = 2
-texture = ExtResource("coin")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="SampleBalance" type="Label" parent="Canvas/PlayContent/Coins"]
-offset_left = 36.0
-offset_top = 0.0
-offset_right = 102.0
-offset_bottom = 31.0
-mouse_filter = 2
-text = "2,480"
-theme_override_font_sizes/font_size = 16
-theme_override_colors/font_color = Color(1, 0.94, 0.81, 1)
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="OpenShop" instance=ExtResource("currency_add") parent="Canvas/PlayContent/Coins" groups=["home_routes"]]
-offset_left = 104.0
-offset_top = 1.0
-offset_right = 134.0
-offset_bottom = 31.0
-metadata/route = &"shop"
-
-[node name="Gems" type="Control" parent="Canvas/PlayContent"]
-offset_left = 310.0
-offset_top = 18.0
-offset_right = 413.0
-offset_bottom = 49.0
-mouse_filter = 2
-
-[node name="Rail" type="TextureRect" parent="Canvas/PlayContent/Gems"]
-offset_left = 25.0
-offset_right = 103.0
-offset_bottom = 31.0
-mouse_filter = 2
-texture = ExtResource("currency_rail")
-expand_mode = 1
-
-[node name="Icon" type="TextureRect" parent="Canvas/PlayContent/Gems"]
-offset_left = -3.0
-offset_top = -3.0
-offset_right = 38.0
-offset_bottom = 35.5
-mouse_filter = 2
-texture = ExtResource("gem")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="SampleBalance" type="Label" parent="Canvas/PlayContent/Gems"]
-offset_left = 36.0
-offset_top = 0.0
-offset_right = 71.0
-offset_bottom = 31.0
-mouse_filter = 2
-text = "120"
-theme_override_fonts/font = ExtResource("currency_bold")
-theme_override_font_sizes/font_size = 16
-theme_override_colors/font_color = Color(1, 0.94, 0.81, 1)
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="OpenShop" instance=ExtResource("currency_add") parent="Canvas/PlayContent/Gems" groups=["home_routes"]]
-offset_left = 73.0
-offset_top = 1.0
-offset_right = 103.0
-offset_bottom = 31.0
-metadata/route = &"shop"
+[node name="Gems" instance=ExtResource("currency_bar") parent="Canvas/PlayContent/Currencies"]
+layout_mode = 2
+icon = ExtResource("gem")
 
 [node name="ContinueMatch" instance=ExtResource("continue_card") parent="Canvas/PlayContent" groups=["home_routes"]]
 offset_left = 13.0

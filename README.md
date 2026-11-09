@@ -23,7 +23,7 @@ Build a polished, playable **offline, same-device, two-player** Ludo board in Go
 ## Home UI preview
 
 Open `scenes/ui/home/home_screen.tscn` in Godot and press **F6** to preview it.
-The Home scene uses sample balances and match text, and emits `route_requested` for
+The Home scene starts both balances at zero, uses sample match text, and emits `route_requested` for
 future navigation. **F5** still opens the separate board scaffold.
 
 - `assets/ui/backgrounds` holds reusable scenery and panel art.
