@@ -7,6 +7,7 @@ config_version=5
 
 config/name="Ludo Paws v2 - Godot Prototype"
 run/main_scene="res://scenes/main.tscn"
+run/main_scene.mobile="res://scenes/ui/home/home_screen.tscn"
 config/features=PackedStringArray("4.0", "GL Compatibility")
 
 [display]
@@ -14,8 +15,10 @@ config/features=PackedStringArray("4.0", "GL Compatibility")
 window/size/viewport_width=900
 window/size/viewport_height=1600
 window/stretch/mode="canvas_items"
+window/handheld/orientation=1
 
 [rendering]
+textures/vram_compression/import_etc2_astc=true
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"

@@ -60,30 +60,31 @@ anchor_bottom = 1.0
 mouse_filter = 2
 color = Color(0.02, 0.075, 0.06, 1)
 
+[node name="Meadow" type="TextureRect" parent="."]
+offset_left = 0.0
+offset_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+texture = ExtResource("backdrop")
+expand_mode = 1
+stretch_mode = 6
+
 [node name="Canvas" type="Control" parent="."]
 offset_left = 0.0
 offset_top = 0.0
 offset_right = 430.0
 offset_bottom = 826.0
 
-[node name="Meadow" type="TextureRect" parent="Canvas"]
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 430.0
-offset_bottom = 826.0
-mouse_filter = 2
-texture = ExtResource("backdrop")
-expand_mode = 1
-stretch_mode = 6
-
 [node name="PlayContent" type="Control" parent="Canvas"]
-offset_right = 430.0
-offset_bottom = 730.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 mouse_filter = 2
 
 [node name="WoodlandHero" type="TextureRect" parent="Canvas/PlayContent"]
 offset_right = 430.0
-offset_bottom = 454.0
+anchor_bottom = 1.0
+offset_bottom = -372.0
 mouse_filter = 2
 material = SubResource("hero_material")
 texture = ExtResource("hero")
@@ -154,16 +155,20 @@ icon = ExtResource("gem")
 
 [node name="ContinueMatch" instance=ExtResource("continue_card") parent="Canvas/PlayContent" groups=["home_routes"]]
 offset_left = 13.0
-offset_top = 379.0
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -447.0
 offset_right = 417.0
-offset_bottom = 453.0
+offset_bottom = -373.0
 metadata/route = &"continue_match"
 
 [node name="ModeGrid" type="Control" parent="Canvas/PlayContent"]
 offset_left = 16.0
-offset_top = 466.0
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -360.0
 offset_right = 414.0
-offset_bottom = 695.0
+offset_bottom = -131.0
 
 [node name="Online" instance=ExtResource("tile") parent="Canvas/PlayContent/ModeGrid" groups=["home_routes"]]
 offset_left = 0.0
