@@ -19,13 +19,15 @@ const LABEL_FONT := preload("res://assets/ui/brand/ui_sans_bold.tres")
 
 @export var navigation_item := false
 @export var current := false
+@export_range(0, 64) var glyph_size := 0
 
 func _ready() -> void:
 	$Contents/Glyph.texture = glyph
 	$Contents/Title.text = title
 	tooltip_text = title
 	mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
-	$Contents/Glyph.custom_minimum_size = Vector2.ONE * (30 if navigation_item else 46)
+	var default_glyph_size := 30 if navigation_item else 46
+	$Contents/Glyph.custom_minimum_size = Vector2.ONE * (glyph_size if glyph_size > 0 else default_glyph_size)
 	$Contents/Title.add_theme_font_override("font", LABEL_FONT)
 	$Contents/Title.add_theme_font_size_override("font_size", 16 if navigation_item else 22)
 	if navigation_item:

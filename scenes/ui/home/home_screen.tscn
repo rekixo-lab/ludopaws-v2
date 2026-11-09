@@ -354,6 +354,7 @@ offset_right = 125.0
 offset_bottom = 110.0
 title = "Online"
 glyph = ExtResource("globe")
+glyph_size = 50
 metadata/route = &"online"
 
 [node name="TeamUp" instance=ExtResource("tile") parent="Canvas/ModeGrid" groups=["home_routes"]]
