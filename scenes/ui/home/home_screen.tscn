@@ -24,6 +24,9 @@
 
 [ext_resource type="PackedScene" path="res://scenes/ui/components/currency_add_button.tscn" id="currency_add"]
 
+[ext_resource type="Texture2D" path="res://assets/ui/backgrounds/currency_rail.svg" id="currency_rail"]
+[ext_resource type="Font" path="res://assets/ui/brand/ui_sans_bold.tres" id="currency_bold"]
+
 [sub_resource type="ShaderMaterial" id="medallion_material"]
 shader = ExtResource("medallion_shader")
 
@@ -177,18 +180,26 @@ offset_right = 134.0
 offset_bottom = 31.0
 metadata/route = &"shop"
 
-[node name="Gems" type="Panel" parent="Canvas/PlayContent"]
+[node name="Gems" type="Control" parent="Canvas/PlayContent"]
 offset_left = 310.0
 offset_top = 18.0
 offset_right = 413.0
 offset_bottom = 49.0
-theme_override_styles/panel = SubResource("chip")
+mouse_filter = 2
+
+[node name="Rail" type="TextureRect" parent="Canvas/PlayContent/Gems"]
+offset_left = 25.0
+offset_right = 103.0
+offset_bottom = 31.0
+mouse_filter = 2
+texture = ExtResource("currency_rail")
+expand_mode = 1
 
 [node name="Icon" type="TextureRect" parent="Canvas/PlayContent/Gems"]
-offset_left = -5.0
-offset_top = -4.5
-offset_right = 36.0
-offset_bottom = 34.0
+offset_left = -3.0
+offset_top = -3.0
+offset_right = 38.0
+offset_bottom = 35.5
 mouse_filter = 2
 texture = ExtResource("gem")
 expand_mode = 1
@@ -201,6 +212,7 @@ offset_right = 71.0
 offset_bottom = 31.0
 mouse_filter = 2
 text = "120"
+theme_override_fonts/font = ExtResource("currency_bold")
 theme_override_font_sizes/font_size = 16
 theme_override_colors/font_color = Color(1, 0.94, 0.81, 1)
 horizontal_alignment = 1
