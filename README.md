@@ -23,12 +23,16 @@ Build a polished, playable **offline, same-device, two-player** Ludo board in Go
 ## Home UI preview
 
 Open `scenes/ui/home/home_screen.tscn` in Godot and press **F6** to preview it.
-The Home scene starts both balances at zero, uses sample match text, and emits `route_requested` for
-future navigation. **F5** still opens the separate board scaffold.
+**F5** opens the connected UI preview. Home starts both balances at zero. The match screens
+embed the separate 3D scaffold, which can still be opened from `scenes/main.tscn` using **F6**.
+Lobby, result, account and shop data are sample UI states. Settings and the local display name
+are stored on the device.
 
 - `assets/ui/backgrounds` holds reusable scenery and panel art.
 - `assets/ui/brand` holds the title plaque, display font resource and Home illustration.
 - `assets/ui/icons` holds single-purpose SVG glyphs.
+- `assets/ui/illustrations` holds reusable Moonlit Meadow screen art and sprite atlases.
+- `scripts/ui/preview` holds the screen router, shared controls and separate lobby, match and hub pages.
 - `scenes/ui/components` and `scripts/ui/components` hold shared Godot controls.
 - `scenes/ui/home` and `scripts/ui/home` hold Home composition and behavior.
 

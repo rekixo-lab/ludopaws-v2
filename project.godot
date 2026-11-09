@@ -6,8 +6,9 @@ config_version=5
 [application]
 
 config/name="Ludo Paws v2 - Godot Prototype"
-run/main_scene="res://scenes/main.tscn"
+run/main_scene="res://scenes/ui/home/home_screen.tscn"
 run/main_scene.mobile="res://scenes/ui/home/home_screen.tscn"
+config/quit_on_go_back=false
 config/features=PackedStringArray("4.0", "GL Compatibility")
 
 [display]
