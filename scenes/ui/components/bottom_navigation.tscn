@@ -9,9 +9,14 @@
 
 [ext_resource type="Texture2D" path="res://assets/ui/icons/notification_dot.svg" id="notification_dot"]
 
+[ext_resource type="Script" path="res://scripts/ui/components/bottom_navigation.gd" id="navigation"]
+
+[sub_resource type="ButtonGroup" id="tabs"]
+
 [node name="BottomNavigation" type="Control"]
 offset_right = 430.0
 offset_bottom = 90.0
+script = ExtResource("navigation")
 
 [node name="Wood" type="TextureRect" parent="."]
 offset_right = 430.0
@@ -29,7 +34,10 @@ title = "Play"
 glyph = ExtResource("paw")
 glyph_size = 35
 metadata/route = &"play"
+toggle_mode = true
+button_group = SubResource("tabs")
 navigation_item = true
+button_pressed = true
 current = true
 
 [node name="Rewards" instance=ExtResource("tile") parent="." groups=["home_routes"]]
@@ -41,6 +49,8 @@ title = "Rewards"
 glyph = ExtResource("gift")
 glyph_size = 34
 metadata/route = &"rewards"
+toggle_mode = true
+button_group = SubResource("tabs")
 navigation_item = true
 
 [node name="Shop" instance=ExtResource("tile") parent="." groups=["home_routes"]]
@@ -52,6 +62,8 @@ title = "Shop"
 glyph = ExtResource("shop")
 glyph_size = 36
 metadata/route = &"shop"
+toggle_mode = true
+button_group = SubResource("tabs")
 navigation_item = true
 
 [node name="Profile" instance=ExtResource("tile") parent="." groups=["home_routes"]]
@@ -63,6 +75,8 @@ title = "Profile"
 glyph = ExtResource("profile")
 glyph_size = 32
 metadata/route = &"profile"
+toggle_mode = true
+button_group = SubResource("tabs")
 navigation_item = true
 
 [node name="RewardDot" type="TextureRect" parent="Rewards"]

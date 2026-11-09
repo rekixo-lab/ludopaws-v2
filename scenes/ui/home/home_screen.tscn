@@ -84,13 +84,18 @@ texture = ExtResource("backdrop")
 expand_mode = 1
 stretch_mode = 6
 
-[node name="HeroFrame" type="Control" parent="Canvas"]
+[node name="PlayContent" type="Control" parent="Canvas"]
+offset_right = 430.0
+offset_bottom = 730.0
+mouse_filter = 2
+
+[node name="HeroFrame" type="Control" parent="Canvas/PlayContent"]
 offset_right = 430.0
 offset_bottom = 378.0
 mouse_filter = 2
 clip_contents = true
 
-[node name="WoodlandHero" type="TextureRect" parent="Canvas/HeroFrame"]
+[node name="WoodlandHero" type="TextureRect" parent="Canvas/PlayContent/HeroFrame"]
 offset_right = 430.0
 offset_bottom = 412.0
 mouse_filter = 2
@@ -98,7 +103,7 @@ texture = ExtResource("hero")
 expand_mode = 1
 stretch_mode = 0
 
-[node name="TitlePlaque" type="TextureRect" parent="Canvas"]
+[node name="TitlePlaque" type="TextureRect" parent="Canvas/PlayContent"]
 offset_left = 96.0
 offset_top = 65.0
 offset_right = 340.0
@@ -108,7 +113,7 @@ texture = ExtResource("sign")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="BrandTop" type="Label" parent="Canvas"]
+[node name="BrandTop" type="Label" parent="Canvas/PlayContent"]
 offset_left = 100.0
 offset_top = 76.0
 offset_right = 330.0
@@ -125,7 +130,7 @@ theme_override_fonts/font = ExtResource("serif")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="BrandBottom" type="Label" parent="Canvas"]
+[node name="BrandBottom" type="Label" parent="Canvas/PlayContent"]
 offset_left = 100.0
 offset_top = 115.0
 offset_right = 330.0
@@ -142,7 +147,7 @@ theme_override_fonts/font = ExtResource("serif")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="BrandPaw" type="TextureRect" parent="Canvas"]
+[node name="BrandPaw" type="TextureRect" parent="Canvas/PlayContent"]
 offset_left = 200.0
 offset_top = 165.0
 offset_right = 230.0
@@ -152,7 +157,7 @@ texture = ExtResource("paw")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="ProfileShortcut" type="Button" parent="Canvas" groups=["home_routes"]]
+[node name="ProfileShortcut" type="Button" parent="Canvas/PlayContent" groups=["home_routes"]]
 offset_left = 17.0
 offset_top = 25.0
 offset_right = 78.0
@@ -161,7 +166,7 @@ tooltip_text = "Profile"
 theme_override_styles/normal = SubResource("badge")
 metadata/route = &"profile"
 
-[node name="Paw" type="TextureRect" parent="Canvas/ProfileShortcut"]
+[node name="Paw" type="TextureRect" parent="Canvas/PlayContent/ProfileShortcut"]
 offset_left = 10.0
 offset_top = 10.0
 offset_right = 51.0
@@ -171,14 +176,14 @@ texture = ExtResource("paw")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Coins" type="Panel" parent="Canvas"]
+[node name="Coins" type="Panel" parent="Canvas/PlayContent"]
 offset_left = 160.0
 offset_top = 18.0
 offset_right = 294.0
 offset_bottom = 49.0
 theme_override_styles/panel = SubResource("chip")
 
-[node name="Icon" type="TextureRect" parent="Canvas/Coins"]
+[node name="Icon" type="TextureRect" parent="Canvas/PlayContent/Coins"]
 offset_left = 0.0
 offset_top = -4.0
 offset_right = 35.0
@@ -188,7 +193,7 @@ texture = ExtResource("coin")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="SampleBalance" type="Label" parent="Canvas/Coins"]
+[node name="SampleBalance" type="Label" parent="Canvas/PlayContent/Coins"]
 offset_left = 36.0
 offset_top = 0.0
 offset_right = 102.0
@@ -200,7 +205,7 @@ theme_override_colors/font_color = Color(1, 0.94, 0.81, 1)
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="OpenShop" type="Button" parent="Canvas/Coins" groups=["home_routes"]]
+[node name="OpenShop" type="Button" parent="Canvas/PlayContent/Coins" groups=["home_routes"]]
 offset_left = 103.0
 offset_top = 1.0
 offset_right = 132.0
@@ -211,14 +216,14 @@ theme_override_styles/normal = SubResource("mint")
 tooltip_text = "Shop"
 metadata/route = &"shop"
 
-[node name="Gems" type="Panel" parent="Canvas"]
+[node name="Gems" type="Panel" parent="Canvas/PlayContent"]
 offset_left = 310.0
 offset_top = 18.0
 offset_right = 413.0
 offset_bottom = 49.0
 theme_override_styles/panel = SubResource("chip")
 
-[node name="Icon" type="TextureRect" parent="Canvas/Gems"]
+[node name="Icon" type="TextureRect" parent="Canvas/PlayContent/Gems"]
 offset_left = 0.0
 offset_top = -4.0
 offset_right = 35.0
@@ -228,7 +233,7 @@ texture = ExtResource("gem")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="SampleBalance" type="Label" parent="Canvas/Gems"]
+[node name="SampleBalance" type="Label" parent="Canvas/PlayContent/Gems"]
 offset_left = 36.0
 offset_top = 0.0
 offset_right = 71.0
@@ -240,7 +245,7 @@ theme_override_colors/font_color = Color(1, 0.94, 0.81, 1)
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="OpenShop" type="Button" parent="Canvas/Gems" groups=["home_routes"]]
+[node name="OpenShop" type="Button" parent="Canvas/PlayContent/Gems" groups=["home_routes"]]
 offset_left = 72.0
 offset_top = 1.0
 offset_right = 101.0
@@ -251,20 +256,20 @@ theme_override_styles/normal = SubResource("mint")
 tooltip_text = "Shop"
 metadata/route = &"shop"
 
-[node name="ContinueMatch" instance=ExtResource("continue_card") parent="Canvas" groups=["home_routes"]]
+[node name="ContinueMatch" instance=ExtResource("continue_card") parent="Canvas/PlayContent" groups=["home_routes"]]
 offset_left = 13.0
 offset_top = 379.0
 offset_right = 417.0
 offset_bottom = 453.0
 metadata/route = &"continue_match"
 
-[node name="ModeGrid" type="Control" parent="Canvas"]
+[node name="ModeGrid" type="Control" parent="Canvas/PlayContent"]
 offset_left = 16.0
 offset_top = 466.0
 offset_right = 414.0
 offset_bottom = 695.0
 
-[node name="Online" instance=ExtResource("tile") parent="Canvas/ModeGrid" groups=["home_routes"]]
+[node name="Online" instance=ExtResource("tile") parent="Canvas/PlayContent/ModeGrid" groups=["home_routes"]]
 offset_left = 0.0
 offset_top = 0.0
 offset_right = 125.0
@@ -274,7 +279,7 @@ glyph = ExtResource("globe")
 glyph_size = 50
 metadata/route = &"online"
 
-[node name="TeamUp" instance=ExtResource("tile") parent="Canvas/ModeGrid" groups=["home_routes"]]
+[node name="TeamUp" instance=ExtResource("tile") parent="Canvas/PlayContent/ModeGrid" groups=["home_routes"]]
 offset_left = 137.0
 offset_top = 0.0
 offset_right = 262.0
@@ -285,7 +290,7 @@ glyph_size = 66
 glyph_height = 50
 metadata/route = &"team_up"
 
-[node name="Friends" instance=ExtResource("tile") parent="Canvas/ModeGrid" groups=["home_routes"]]
+[node name="Friends" instance=ExtResource("tile") parent="Canvas/PlayContent/ModeGrid" groups=["home_routes"]]
 offset_left = 274.0
 offset_top = 0.0
 offset_right = 399.0
@@ -296,7 +301,7 @@ glyph_size = 74
 glyph_height = 51
 metadata/route = &"friends"
 
-[node name="Robot" instance=ExtResource("tile") parent="Canvas/ModeGrid" groups=["home_routes"]]
+[node name="Robot" instance=ExtResource("tile") parent="Canvas/PlayContent/ModeGrid" groups=["home_routes"]]
 offset_left = 0.0
 offset_top = 122.0
 offset_right = 194.0
@@ -307,7 +312,7 @@ glyph_size = 70
 glyph_height = 55
 metadata/route = &"robot"
 
-[node name="PassAndPlay" instance=ExtResource("tile") parent="Canvas/ModeGrid" groups=["home_routes"]]
+[node name="PassAndPlay" instance=ExtResource("tile") parent="Canvas/PlayContent/ModeGrid" groups=["home_routes"]]
 offset_left = 204.0
 offset_top = 122.0
 offset_right = 398.0

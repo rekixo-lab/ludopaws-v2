@@ -19,7 +19,13 @@ const LABEL_FONT := preload("res://assets/ui/brand/ui_sans_bold.tres")
 			$Contents/Glyph.texture = glyph
 
 @export var navigation_item := false
-@export var current := false
+@export var current := false:
+	set(value):
+		if current == value:
+			return
+		current = value
+		if is_node_ready() and navigation_item:
+			_apply_navigation_style()
 @export_range(0, 100) var glyph_size := 0
 @export_range(0, 100) var glyph_height := 0
 
@@ -35,20 +41,27 @@ func _ready() -> void:
 	$Contents/Title.add_theme_font_override("font", LABEL_FONT)
 	$Contents/Title.add_theme_font_size_override("font_size", 16 if navigation_item else 22)
 	if navigation_item:
-		if current:
-			$Contents/Glyph.self_modulate = Color(1.17, 1.29, 1.52)
-			add_theme_stylebox_override("normal", _textured_style(NAV_ACTIVE_SURFACE, Color.WHITE, 15))
-			add_theme_stylebox_override("hover", _textured_style(NAV_ACTIVE_SURFACE, Color(1.1, 1.1, 1.1), 15))
-			add_theme_stylebox_override("pressed", _textured_style(NAV_ACTIVE_SURFACE, Color(0.86, 0.86, 0.86), 15))
-		else:
-			add_theme_stylebox_override("normal", StyleBoxEmpty.new())
-			add_theme_stylebox_override("hover", _style(Color(0.69, 0.42, 0.22, 0.16), Color.TRANSPARENT))
-			add_theme_stylebox_override("pressed", _style(Color(0.12, 0.07, 0.04, 0.22), Color.TRANSPARENT))
+		_apply_navigation_style()
 	else:
 		add_theme_stylebox_override("normal", _textured_style(CARD_SURFACE, Color.WHITE, 22))
 		add_theme_stylebox_override("hover", _textured_style(CARD_SURFACE, Color(1.13, 1.13, 1.13), 22))
 		add_theme_stylebox_override("pressed", _textured_style(CARD_SURFACE, Color(0.82, 0.82, 0.82), 22))
 	add_theme_stylebox_override("focus", _style(Color.TRANSPARENT, Color("#fff0c5")))
+
+func _apply_navigation_style() -> void:
+	set_pressed_no_signal(current)
+	if current:
+		$Contents/Glyph.self_modulate = Color(1.17, 1.29, 1.52)
+		add_theme_stylebox_override("normal", _textured_style(NAV_ACTIVE_SURFACE, Color.WHITE, 15))
+		add_theme_stylebox_override("hover", _textured_style(NAV_ACTIVE_SURFACE, Color(1.06, 1.06, 1.06), 15))
+		add_theme_stylebox_override("pressed", _textured_style(NAV_ACTIVE_SURFACE, Color.WHITE, 15))
+		add_theme_stylebox_override("hover_pressed", _textured_style(NAV_ACTIVE_SURFACE, Color(1.06, 1.06, 1.06), 15))
+	else:
+		$Contents/Glyph.self_modulate = Color.WHITE
+		add_theme_stylebox_override("normal", StyleBoxEmpty.new())
+		add_theme_stylebox_override("hover", _style(Color(0.69, 0.42, 0.22, 0.16), Color.TRANSPARENT))
+		add_theme_stylebox_override("pressed", _style(Color(0.12, 0.07, 0.04, 0.22), Color.TRANSPARENT))
+		add_theme_stylebox_override("hover_pressed", _style(Color(0.12, 0.07, 0.04, 0.22), Color.TRANSPARENT))
 
 func _textured_style(texture: Texture2D, tint: Color, margin: int) -> StyleBoxTexture:
 	var style := StyleBoxTexture.new()

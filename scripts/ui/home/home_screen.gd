@@ -5,6 +5,8 @@ signal route_requested(route: StringName)
 const DESIGN_SIZE := Vector2(430, 826)
 
 @onready var canvas: Control = $Canvas
+@onready var play_content: Control = $Canvas/PlayContent
+@onready var navigation = $Canvas/BottomNavigation
 
 func _ready() -> void:
 	get_window().content_scale_size = Vector2i(DESIGN_SIZE)
@@ -23,6 +25,8 @@ func _fit_canvas() -> void:
 	canvas.position = (size - DESIGN_SIZE * factor) * 0.5
 
 func _request_route(route: StringName) -> void:
+	if navigation.select_route(route):
+		play_content.visible = route == &"play"
 	route_requested.emit(route)
 
 func _capture_preview(path: String) -> void:
